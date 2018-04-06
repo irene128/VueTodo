@@ -4,7 +4,7 @@
         <ul class="list-group">
             <li class="list-group-item" v-for="todo in todos">
               <input type="checkbox" @click="complete(todo)">
-                {{todo.body}}
+                <span name="todoItem">{{todo.body}}</span>
                 <br/>
                 {{todo.createdAt}}
 
@@ -22,7 +22,7 @@
     </div>
 </template>
 <script>
-
+import { ModalEvent } from '../EventBus'
 export default{
     methods: {
         edit(todo){
@@ -37,6 +37,17 @@ export default{
     },
     computed: {
         todos(){
+          ModalEvent.$on('SET_SEARCH_TEXT', text => {
+            var objNum = document.getElementsByName("todoItem");
+            for (var i = 0, len=objNum.length; i < len; i++) {
+              var tmpStr = objNum[i].innerHTML;
+              if(tmpStr.toLowerCase().match(text)){
+                objNum[i].parentElement.style.display = "block"
+              }else{
+                objNum[i].parentElement.style.display = "none"
+              }
+            }
+         });
             return this.$store.getters.todos
         }
     }

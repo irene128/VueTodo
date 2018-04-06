@@ -108,9 +108,6 @@ export default new Vuex.Store({
               });
             });
         },
-        SET_SEARCH_TEXT(state,text){
-            //return state.todos.filter((todo) => {return todo.body.toLowerCase().match(text)});
-        },
         CLEAR_TODO(state){
             state.newTodo = ''
         }
@@ -118,9 +115,6 @@ export default new Vuex.Store({
     actions: {
         startAddUserTodos({commit}, todo){
             commit('START_ADD_USER_TODOS', todo)
-        },
-        setSearchText({commit}, todo){
-            commit('SET_SEARCH_TEXT', todo)
         },
         getTodo({commit}, todo){
             commit('GET_TODO', todo)
@@ -143,16 +137,10 @@ export default new Vuex.Store({
 
     },
     getters: {
-        search (state) {
-          return keyword => state.items.filter(item =>{
-            return item.name === keyword
-          });
-        },
         newTodo: state => state.newTodo,
         todoCreated : state => state.createdAt,
         todos: state => state.todos.filter((todo) => {return !todo.completed}),
-        completedTodos: state => state.todos.filter((todo) => {return todo.completed}),
-        searchTodos: state => state.todos.filter((todo) => {return todo.body.toLowerCase().match("sss")})
+        completedTodos: state => state.todos.filter((todo) => {return todo.completed})
     }
 
 })

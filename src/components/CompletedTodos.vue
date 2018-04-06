@@ -34,16 +34,13 @@ import { ModalEvent } from '../EventBus'
                     });
 
                     ModalEvent.$on('SET_SEARCH_TEXT', text => {
-                    //console.log("======> text "+ text);
                       var objNum = document.getElementsByName("todoItem");
                       for (var i = 0, len=objNum.length; i < len; i++) {
                         var tmpStr = objNum[i].innerHTML;
                         if(tmpStr.toLowerCase().match(text)){
-                          console.log("MATCH       !!!!!!!!!!!!! "+objNum[i].innerHTML);
-                          document.getElementsByName("todoItem")[i].parentElement.style.display = "block"
+                          objNum[i].parentElement.style.display = "block"
                         }else{
-                          //objNum[i].style.display = "none"
-                          document.getElementsByName("todoItem")[i].parentElement.style.display = "none"
+                          objNum[i].parentElement.style.display = "none"
                         }
                      }
                   });
