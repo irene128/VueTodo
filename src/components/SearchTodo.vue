@@ -35,5 +35,7 @@ import { ModalEvent } from '../EventBus'
         }
 </script>
 <style scoped>
-
+.container{
+  margin: 0.5rem 0rem 2rem 0rem;
+}
 </style>

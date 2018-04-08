@@ -1,5 +1,6 @@
 <template>
     <div id="current-todos" class="container">
+        <h5 v-if="todos.length == 0">Nothing To Do</h5>
         <h5 v-if="todos.length > 0">Current <span class="badge badge-pill badge-secondary">  {{todos.length}}</span> </h5>
         <ul class="list-group">
             <li class="list-group-item" v-for="todo in todos">
@@ -63,5 +64,15 @@ export default{
         border: none;
         background: none;
         color: #8c8c8c;
+    }
+
+    .edit-btn span:hover{
+      color: #000;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .container{
+      margin-bottom: 2rem;
     }
 </style>

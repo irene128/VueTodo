@@ -5,7 +5,7 @@
                @change="getTodo"
                @keyup.enter="addTodo"
                placeholder="what do you need todo?">
-        <button class="btn btn-primary" @click="addTodo" >Add Todo </button>
+        <button class="btn btn-primary" @click="addTodo" ><v-icon class="icon" name="plus-circle"></v-icon> Add Todo </button>
     </div>
 </template>
 <script>
@@ -27,3 +27,8 @@ export default{
     }
 }
 </script>
+<style scope>
+.icon {
+        width: 15px;
+    }
+</style>

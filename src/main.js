@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import BootstrapVue from 'bootstrap-vue'
 import App from './App.vue'
 import store from './store/store'
 import firebase from 'firebase'
@@ -7,13 +8,18 @@ import VueRouter from 'vue-router'
 import router from './router'
 import {config} from './helpers/firebaseConfig'
 import EventBus from './components/EventBus.vue'
-
-Vue.use(VueRouter)
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
+import icons from 'vue-icon'
+Vue.use(BootstrapVue);
+Vue.use(VueRouter);
+Vue.use(icons, 'v-icon');
 
 new Vue({
   router,
   store,
   EventBus,
+  BootstrapVue,
   created() {
     firebase.initializeApp(config);
     firebase.auth().onAuthStateChanged((user) => {

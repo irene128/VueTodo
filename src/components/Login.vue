@@ -1,18 +1,18 @@
 <template lang="html">
 <div class="container">
-<div class="jumbotron">
-  <h2><b><span class="glyphicon glyphicon-list-alt"></span> Vue & Vuex Todo App</b></h2>
+<b-jumbotron>
+  <h1><v-icon class="icon" name="list"></v-icon><b>  Vue & Vuex Todo App</b></h1>
 <blockquote>
   <p class="desc">This app using Vue Vuex framework, and Bootstrap responsive front-end framework. With Firebase cloud-hosted database, you can login in with Google account and save your own todo items.</p>
 </blockquote>
-  <span class="label label-primary">Vue</span>
-  <span class="label label-primary">Vuex</span>
-  <span class="label label-primary">Vue-router</span>
-  <span class="label label-primary">Event Bus</span>
-  <span class="label label-primary">Firebase</span>
-  <span class="label label-primary">BootStrap</span>
+  <b-badge variant="secondary">Vue</b-badge>
+  <b-badge variant="secondary">Vuex</b-badge>
+  <b-badge variant="secondary">Vue-router</b-badge>
+  <b-badge variant="secondary">Event Bus</b-badge>
+  <b-badge variant="secondary">Firebase</b-badge>
+  <b-badge variant="secondary">BootStrap</b-badge>
   <div id="firebaseui-auth-container"></div>
-  </div>
+</b-jumbotron>
   </div>
 </template>
 
@@ -20,6 +20,7 @@
 import firebase from 'firebase';
 import firebaseui from 'firebaseui'
 import {config} from '../helpers/firebaseConfig';
+
 export default {
   name: 'auth',
   mounted() {
@@ -43,4 +44,8 @@ blockquote{
 .desc {
   font-size: 16px;
 }
+
+.icon {
+  width: 40px;
+    }
 </style>

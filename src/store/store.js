@@ -56,10 +56,33 @@ export default new Vuex.Store({
             todos.splice(todos.indexOf(todo), 1)
             state.todos = todos
             state.newTodo = todo.body
+            console.log("origin todo" + todo.id);
+            //origin data
+            var preID = todo.id;
+            var firebaseRef = firebase.database().ref();
+            var user = firebase.auth().currentUser;
+            var uid;
+            if (user != null) {
+              user.providerData.forEach(function (profile) {
+                uid=profile.uid;
+              });
+            }
+            firebaseRef.child(`users/${uid}/todos/${preID}`).remove();
         },
         REMOVE_TODO(state, todo){
             var todos = state.todos
             todos.splice(todos.indexOf(todo), 1)
+
+            var firebaseRef = firebase.database().ref();
+            var id=todo.id;
+            var user = firebase.auth().currentUser;
+            var uid;
+            if (user != null) {
+              user.providerData.forEach(function (profile) {
+                uid=profile.uid;
+              });
+            }
+            firebaseRef.child(`users/${uid}/todos/${id}`).remove();
         },
         COMPLETE_TODO(state, todo){
             var message = 'Completed ';

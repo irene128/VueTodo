@@ -1,16 +1,15 @@
 <template>
-<nav class="navbar navbar-default">
+<b-navbar class="nav">
     <div class="container">
       <div class="navbar-header">
         <a class="navbar-brand">Vue & Vuex <b>Todo App</b></a>
       </div>
-      <p class="navbar-text navbar-right">
-          <h6> Hello, <b>{{name}}</b></h6>
-          &nbsp;&nbsp;<img :src="photo" style='height: 30px' class="img-circle">
-          &nbsp;&nbsp;&nbsp;<a href="#" @click='logOut'><span class="glyphicon glyphicon-log-out"></span>  Log out</a>
+      <p class="navbar-right">
+          <span class="greeting"> Hello, <b>{{name}}</b>&nbsp;&nbsp;<img :src="photo" style='height: 30px' class="img-circle"></span>
+          &nbsp;&nbsp;&nbsp;<a href="#" @click='logOut'><v-icon class="icon" name="log-out"></v-icon>  Log out</a>
       </p>
    </div>
-  </nav>
+  </b-navbar>
 </template>
 
 <script>
@@ -53,10 +52,28 @@ export default {
 }
 
 .img-circle {
-    border-radius: 50%;
+  border-radius: 50%;
 }
 
-nav {
-  color:#595959;
+.nav {
+  background-color: #563d7c;
+  color: white;
+  margin: 0px 14px 3px 14px;
+}
+.greeting {
+  color: white;
+}
+
+.icon {
+  width: 20px;
+    }
+
+a {
+  color: #c9bbdd;
+    }
+
+a:hover {
+  color: #f1eef7;
+  text-decoration: none;
 }
 </style>

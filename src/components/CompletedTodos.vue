@@ -54,4 +54,8 @@ import { ModalEvent } from '../EventBus'
   text-decoration: line-through;
   color: #808080;
 }
+
+.container{
+  margin-bottom: 2rem;
+}
 </style>
