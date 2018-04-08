@@ -26,3 +26,6 @@ npm run build
 <img src="images/toggle.png" alt="Toggle">
 + 關鍵字搜尋Todo項目
 <img src="images/search.png" alt="Search">
+
+## Demo
+<img src="images/demo.gif" alt="Demo">
